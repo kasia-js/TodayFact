@@ -1,39 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import moment from 'moment';
 
+import './App.css';
+import Form from './Form.js'
 import logo from './Wikipedia_logo_(svg).svg';
 
-const baseURL = 'https://byabbe.se/on-this-day/1/20/events.json'
-// const baseURL = 'http://localhost:3001';
+
+// const baseURL = 'https://byabbe.se/on-this-day/1/20/events.json'
+const baseURL = 'http://localhost:3001';
 
 const App = () => {
   const [facts, setFacts] = useState([]);
-  const [day, setDay] = useState(20);
-  const [month, setMonth] = useState(1);
-
+  const [link, setLink] = useState();
+  let currentMonth = new Date().getMonth() + 1;
+  let currentDay = new Date().getDate();
+ 
   useEffect(() => { //perform data fetching after render
-    fetch(`${baseURL}`)
-    // fetch(`${baseURL}/facts/:month/:day/`)  
-    .then(response => response.json())   
-    .then(response => {
-      console.log(response.events)
-      setFacts(response.events) 
-    }
-      
-      
-    )
-   
-    
+    getFacts(currentMonth,currentDay)    
   },[]) //[] runs once only
+
+  function getFacts(month,day) {
+    fetch(`${baseURL}/facts/${month}/${day}`)
+    .then(response => response.json())
+    .then(response =>
+    setFacts(response.events))
+  }
+
+
   
   const factsList = facts.map(fact => (
-    <>
-      <div className="Facts">{fact.description}</div>
+    <>   
+      <div className="Description">{fact.description}</div>
+      <div className="Year">{fact.year}</div>
     </>
   ))
-
-
-
+  
 
   return (
     <div className="Navigation">
@@ -42,7 +43,8 @@ const App = () => {
         <img src={logo} className="Wikipedia-logo" alt="logo" />      
       </header>
       <main>
-  <div className="Facts-list">{factsList}</div>
+        <Form className="Form" month={currentMonth} day={currentDay} getFacts={getFacts}/>
+        <div className="Facts-list">{factsList}</div>
       </main>
     </div>
   );
