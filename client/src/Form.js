@@ -7,28 +7,51 @@ function Form(props) {
   // Form({getFacts, day, month})
   const [day, changeDay] = useState(props.day);
   const [month, changeMonth] = useState(props.month);
-
-  function handleMonthChange(e) {
-    changeMonth(e.target.value);
-  }
+  const [displayMonthInputError,setDisplayMonthInputError] = useState(false);
+  const [displayDayInputError, setDisplayDayInputError] = useState(false); //initial value of displayDayInputError equal to false
+  const [displayWrongDayInput, setDisplayWrongDayInput] = useState();
+  const [displayWrongMonthInput, setDisplayWrongMonthInput] = useState();
+  
   function handleDayChange(e) {
-    changeDay(e.target.value);
+    if(!isNaN(e.target.value)) {
+      setDisplayDayInputError(false);
+      changeDay(e.target.value);
+    } else {
+      setDisplayDayInputError(true);
+      setDisplayWrongDayInput(e.target.value);
+      changeDay(e.target.value);
+    }
   }
 
+  function handleMonthChange(e) {    
+      if(!isNaN(e.target.value) && e.target.value.match(/^([1-9]|1[0-2])$/) != null) {      
+        setDisplayMonthInputError(false);
+        changeMonth(e.target.value);
+      } else {
+        setDisplayMonthInputError(true);
+        setDisplayWrongMonthInput(e.target.value)
+        changeMonth(e.target.value);
+      }  
+  }
   
   function print(e) {
     e.preventDefault();
-    console.log(day);
-    console.log(month);
-    props.getFacts(month,day);
+    if(!displayMonthInputError && !displayDayInputError) { //both must be true, otherwise it checks only the first one
+      console.log(day);
+      console.log(month);
+      props.getFacts(month,day);
+    }
   }
+
   return (
     <form className="form" onSubmit={print}>
       <h3>Find facts for selected date...</h3>
-      <label>MONTH</label>
-      <input type="text" name="month" value={month} onChange={handleMonthChange}/>
       <label>DAY</label>
-      <input type="datetime-local" name="day" value={day} onChange={handleDayChange} />
+      <input type="number" name="day" min="1" max="31"value={day} onChange={handleDayChange} />
+        {displayDayInputError ? <div>Please insert a valid day...Instad of {`"${displayWrongDayInput}"`}</div> : null}
+      <label>MONTH</label>
+        {displayMonthInputError ? <div>Please insert a valid month...Instad of {`"${displayWrongMonthInput}"`}</div> : null}       
+      <input type="number" name="month" min="1" max="12" value={month} onChange={handleMonthChange}/>
       <button type="submit" className="form-submit" >Create</button>
     </form>
   )
@@ -36,3 +59,4 @@ function Form(props) {
 
 export default Form
 
+ 

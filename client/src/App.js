@@ -11,7 +11,6 @@ const baseURL = 'http://localhost:3001';
 
 const App = () => {
   const [facts, setFacts] = useState([]);
-  const [link, setLink] = useState();
   let currentMonth = new Date().getMonth() + 1;
   let currentDay = new Date().getDate();
  
@@ -39,7 +38,7 @@ const App = () => {
   return (
     <div className="Navigation">
       <header className="App-header">
-        <h3>TodayFact</h3>
+        <h3>TodayFacts by WIKIPEDIA. The Free Encyclopedia</h3>
         <img src={logo} className="Wikipedia-logo" alt="logo" />      
       </header>
       <main>
