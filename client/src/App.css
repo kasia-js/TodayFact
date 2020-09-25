@@ -1,9 +1,25 @@
+
+
 .Navigation {
   text-align: center;
+  background-color: #E7CFBC;
+}
+.Main-container {
+  background-color: #FFF4EC;
+}
+.Facts-list {
+  background-color: #FFF4EC;
 }
 
 .Wikipedia-logo {
   height: 20vmin;
   margin-top: 20px;
+}
+
+.Tag-map { 
+  display:flex;
+  height: 20vmin;
+  
+
 }
 

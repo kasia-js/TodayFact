@@ -13,7 +13,7 @@ function Form(props) {
   const [displayWrongMonthInput, setDisplayWrongMonthInput] = useState();
   
   function handleDayChange(e) {
-    if(!isNaN(e.target.value)) {
+    if(!isNaN(e.target.value) != null) {
       setDisplayDayInputError(false);
       changeDay(e.target.value);
     } else {
@@ -44,15 +44,13 @@ function Form(props) {
   }
 
   return (
-    <form className="form" onSubmit={print}>
+    <form className="Form" onSubmit={print}>
       <h3>Find facts for selected date...</h3>
       <label>DAY</label>
       <input type="number" name="day" min="1" max="31"value={day} onChange={handleDayChange} />
-        {displayDayInputError ? <div>Please insert a valid day...Instad of {`"${displayWrongDayInput}"`}</div> : null}
-      <label>MONTH</label>
-        {displayMonthInputError ? <div>Please insert a valid month...Instad of {`"${displayWrongMonthInput}"`}</div> : null}       
+      <label>MONTH</label>     
       <input type="number" name="month" min="1" max="12" value={month} onChange={handleMonthChange}/>
-      <button type="submit" className="form-submit" >Create</button>
+      <button type="submit" className="Form-submit" >Create</button>
     </form>
   )
 }

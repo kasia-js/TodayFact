@@ -24,28 +24,27 @@ const App = () => {
     .then(response =>
     setFacts(response.events))
   }
-
-
   
   const factsList = facts.map(fact => (
     <>   
       <div className="Description">{fact.description}</div>
-      <div className="Year">{fact.year}</div>
+      {/* <div className="Year">{fact.year}</div> */}
     </>
   ))
   
-
   return (
-    <div className="Navigation">
-      <header className="App-header">
+    <>
+      <header className="Navigation">
         <h3>TodayFacts by WIKIPEDIA. The Free Encyclopedia</h3>
-        <img src={logo} className="Wikipedia-logo" alt="logo" />      
+        <img src={logo} className="Wikipedia-logo" alt="logo" />  
       </header>
-      <main>
+      <div className="Main-container">
+        
         <Form className="Form" month={currentMonth} day={currentDay} getFacts={getFacts}/>
+        <img src={logo} className="Tag-map"></img>
         <div className="Facts-list">{factsList}</div>
-      </main>
-    </div>
+      </div>
+   </>
   );
 }
 
