@@ -1,24 +1,48 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
 .Navigation { 
   display: flex;
   flex-direction: row;
   background-color: #E7CFBC;
+  padding:20px
+  
 }
 
 .Title {
   text-align: start;
+  display: flex;
+  align-self: center;
+  font-size: 28px;
+  margin-left: 20px;
+  color: #111;
+  /* font-weight: 800; */
+  /* what website for fonts? */
+
+  font-family: 'Merriweather', serif;
 }
 
 .Wikipedia-logo {
   height: 15vmin;
-  margin-top: 10px;
-  justify-content: center;
+  
+  margin-left: 30px;
+
 }
 
 .Mode-button {
-  justify-content: end;
+  margin-left: auto;
+  background-color: #FFF4EC; 
+  padding: 20px;
+  border-radius: 20px;
+  font-family: "Great Vibes", cursive;
+  font-size: 20px;
+  align-self: center;
+  padding:20px;
+  
+  /* make website dynamic? */
+  
 }
-
+.Mode-button:hover {
+  background-color:red;
+}
 .Main-container {
   background-color: #FFF4EC;
   display: flex;

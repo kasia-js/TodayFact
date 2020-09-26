@@ -35,9 +35,9 @@ const App = () => {
   return (
     <>
       <header className="Navigation">
-        <h3 className = "Title">TodayFacts by WIKIPEDIA. The Free Encyclopedia</h3>
+        <h3 className = "Title">TodayFacts by WIKIPEDIA. <br></br>The Free Encyclopedia</h3>
         <img src={logo} className="Wikipedia-logo" alt="logo" /> 
-        <button type="submit" className="Mode-button" >Create</button> 
+        <button type="submit" className="Mode-button" >The Dark Mode <br></br><span className="small">* Click here to activate</span></button> 
       </header>
       <div className="Main-container">
         <div>

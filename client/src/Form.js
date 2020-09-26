@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import moment from 'moment';
 
 import './App.css';
+import './Form.css'
 
 function Form(props) {
   // Form({getFacts, day, month})
   const [day, changeDay] = useState(props.day);
   const [month, changeMonth] = useState(props.month);
+  //Code for input validation 
   const [displayMonthInputError,setDisplayMonthInputError] = useState(false);
   const [displayDayInputError, setDisplayDayInputError] = useState(false); //initial value of displayDayInputError equal to false
   const [displayWrongDayInput, setDisplayWrongDayInput] = useState();
@@ -45,12 +47,12 @@ function Form(props) {
 
   return (
     <form className="Form" onSubmit={print}>
-      <h3>Find facts for selected date...</h3>
-      <label>DAY</label>
+      <h3 className="Heading-text">Find facts for a selected date...</h3>
+      <label className ="Day-label">DAY</label>
       <input type="number" name="day" min="1" max="31"value={day} onChange={handleDayChange} />
-      <label>MONTH</label>     
+      <label className ="Month-label">MONTH</label>     
       <input type="number" name="month" min="1" max="12" value={month} onChange={handleMonthChange}/>
-      <button type="submit" className="Form-submit" >Create</button>
+      <button type="submit" className="Form-submit" >Search</button>
     </form>
   )
 }
