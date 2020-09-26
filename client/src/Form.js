@@ -47,7 +47,7 @@ function Form(props) {
 
   return (
     <form className="Form" onSubmit={print}>
-      <h3 className="Heading-text">Find facts for a selected date...</h3>
+      <label className="Heading-text">Find facts for selected day and month...</label>
       <label className ="Day-label">DAY</label>
       <input className ="Day-input" type="number" name="day" min="1" max="31"value={day} onChange={handleDayChange} />
       <label className ="Month-label">MONTH</label>     

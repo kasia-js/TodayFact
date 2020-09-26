@@ -35,15 +35,15 @@ const App = () => {
   return (
     <>
       <header className="Navigation">
-        <h3 className = "Title">TodayFacts by WIKIPEDIA. <br></br>The Free Encyclopedia</h3>
+        <div>
+          <div className = "Title-big">TodayFacts by WIKIPEDIA. </div>
+          <div className = "Title-small">The Free Encyclopedia</div>
+        </div>       
         <img src={logo} className="Wikipedia-logo" alt="logo" /> 
         <Form className="Form" month={currentMonth} day={currentDay} getFacts={getFacts}/> 
       </header>
-      <div className="Main-container">
-        <div>
-         
-          <img src={logo} className="Tag-map"></img>
-        </div>
+      <div className="Main-container">     
+          <div className="Tag-map">TagCloud</div>  
         <div className="Facts-list">{factsList}</div>
       </div>
    </>
