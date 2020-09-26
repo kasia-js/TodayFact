@@ -35,16 +35,11 @@
 }
 
 .Facts-list {
-  background-color: #004962;
   flex: 2;
-  margin-right:50px;
-  margin-top: 50px;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: 13px -17px 35px -12px rgba(0,0,0,0.75);
-  border-radius: 7px;
-  padding: 25px;
-  font-size: 16px;
+  padding-top:20px;
+  
 }
 
 .Tag-map { 
@@ -56,4 +51,17 @@
 
 .small{
   font-size: 15px;
+}
+.Description {
+  background-color: #004962;;
+  margin:10px;
+  flex: 2;
+  margin-right:50px;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 13px -17px 35px -12px rgba(0,0,0,0.75);
+  border-radius: 7px;
+  padding: 25px;
+  font-size: 16px;
 }
