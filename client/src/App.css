@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 .Navigation { 
   display: flex;
   flex-direction: row;
-  background-color: #E7CFBC;
-  padding:20px
+  background-color: #04acdc;
+  padding:20px;
+  
   
 }
 
@@ -11,46 +13,37 @@
   text-align: start;
   display: flex;
   align-self: center;
-  font-size: 28px;
+  font-size: 30px;
   margin-left: 20px;
-  color: #111;
-  /* font-weight: 800; */
-  /* what website for fonts? */
-
-  font-family: 'Merriweather', serif;
+  color: white;
+  font-family: 'Roboto', sans-serif;
 }
 
 .Wikipedia-logo {
-  height: 15vmin;
-  
+  height: 15vmin;  
   margin-left: 30px;
 
 }
 
 .Mode-button {
   margin-left: auto;
-  background-color: #FFF4EC; 
+  background-color: #e02877; 
   padding: 20px;
   border-radius: 20px;
-  font-family: "Great Vibes", cursive;
   font-size: 20px;
   align-self: center;
-  padding:20px;
-  
-  /* make website dynamic? */
-  
+  padding:20px;  
 }
-.Mode-button:hover {
-  background-color:red;
-}
+
+
 .Main-container {
-  background-color: #FFF4EC;
+  background-color: #d2dce7;
   display: flex;
   flex-direction: row;
 }
 
 .Facts-list {
-  background-color: #fbf8f6;
+  background-color: #004962;
 
 }
 

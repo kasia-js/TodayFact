@@ -37,11 +37,11 @@ const App = () => {
       <header className="Navigation">
         <h3 className = "Title">TodayFacts by WIKIPEDIA. <br></br>The Free Encyclopedia</h3>
         <img src={logo} className="Wikipedia-logo" alt="logo" /> 
-        <button type="submit" className="Mode-button" >The Dark Mode <br></br><span className="small">* Click here to activate</span></button> 
+        <Form className="Form" month={currentMonth} day={currentDay} getFacts={getFacts}/> 
       </header>
       <div className="Main-container">
         <div>
-          <Form className="Form" month={currentMonth} day={currentDay} getFacts={getFacts}/>
+         
           <img src={logo} className="Tag-map"></img>
         </div>
         <div className="Facts-list">{factsList}</div>
