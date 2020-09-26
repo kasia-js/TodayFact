@@ -1,25 +1,36 @@
 
-
-.Navigation {
-  text-align: center;
+.Navigation { 
+  display: flex;
+  flex-direction: row;
   background-color: #E7CFBC;
 }
-.Main-container {
-  background-color: #FFF4EC;
-}
-.Facts-list {
-  background-color: #FFF4EC;
+
+.Title {
+  text-align: start;
 }
 
 .Wikipedia-logo {
-  height: 20vmin;
-  margin-top: 20px;
+  height: 15vmin;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.Mode-button {
+  justify-content: end;
+}
+
+.Main-container {
+  background-color: #FFF4EC;
+  display: flex;
+  flex-direction: row;
+}
+
+.Facts-list {
+  background-color: #fbf8f6;
+
 }
 
 .Tag-map { 
-  display:flex;
-  height: 20vmin;
-  
-
+  height: 20vmin;  
 }
 
