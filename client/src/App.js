@@ -4,7 +4,7 @@ import moment from 'moment';
 import './App.css';
 import Form from './Form.js'
 import logo from './Wikipedia_logo_(svg).svg';
-
+import { TagCloud } from 'react-tagcloud';
 
 // const baseURL = 'https://byabbe.se/on-this-day/1/20/events.json'
 const baseURL = 'http://localhost:3001';
@@ -35,7 +35,8 @@ const App = () => {
       {/* <div className="Year">{fact.year}</div> */}
     </>
   ))
-
+  // filter as per factsList to get data for TagCloud
+  
   return (
     <>
       <header className="Navigation">
@@ -47,7 +48,13 @@ const App = () => {
         <Form className="Form" month={currentMonth} day={currentDay} getFacts={getFacts} />
       </header>
       <div className="Main-container">
-        <div className="Tag-map">TagCloud</div>
+      <TagCloud 
+        minSize={12}
+        maxSize={35}
+        tags={data}
+        className="simple-cloud"
+        onClick={tag => alert(`'${tag.value}' was selected!`)}
+      />        
         <div className="Facts-list">
           {
             info ? <div className="Info">{info}</div> : <></>
