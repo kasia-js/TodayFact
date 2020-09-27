@@ -2,6 +2,20 @@
 const axios = require('axios');
 const model = require('../Models/models');
 
+async function getMostFrequentDates(req,res) {
+  try {
+    const factsFromDB = await model.find(); 
+    //send only 10 most frequent
+    let mostFrequentDates=factsFromDB.sort((a,b) => b.count - a.count).slice(0,11); 
+    res.status(200);
+    res.send(mostFrequentDates);      
+  } catch (e) {
+    console.log('Error', e); //eslint-disable-line no-console
+    res.sendStatus(500);
+  }
+}
+
+
 async function getFacts (req, res) { 
   try {
     const day = req.params.day;
@@ -58,5 +72,5 @@ async function setCount (day, month) {
   }
 }
 
-module.exports = {getFacts}
+module.exports = {getFacts, getMostFrequentDates}
 
