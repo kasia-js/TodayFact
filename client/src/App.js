@@ -20,7 +20,7 @@ const App = () => {
   }, []) //[] runs once only
 
   function getFacts(month, day) {
-    setInfo('loading...');
+    setInfo('Loading...');
     setFacts([]);
     fetch(`${baseURL}/facts/${month}/${day}`)
       .then(response => response.json())
@@ -50,9 +50,8 @@ const App = () => {
         <div className="Tag-map">TagCloud</div>
         <div className="Facts-list">
           {
-            info ? <div style={{ background: 'red', padding: 10 }}>{info}</div> : <></>
+            info ? <div className="Info">{info}</div> : <></>
           }
-
           {factsList}
         </div>
       </div>

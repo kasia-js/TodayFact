@@ -9,15 +9,15 @@
   color: white;
   margin-left: auto;
   margin-right: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   padding-right: 20px;
   padding-left: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 16px;
   align-self: center;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .Form-submit:hover {
@@ -26,10 +26,10 @@
 }
 
 .Heading-text {  
-  font-size: 20px;
+  font-size: 16px;
   color: white;
   font-family: 'Roboto', sans-serif;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .Day-label {
