@@ -15,7 +15,6 @@ async function getMostFrequentDates(req,res) {
   }
 }
 
-
 async function getFacts (req, res) { 
   try {
     const day = req.params.day;
@@ -36,31 +35,9 @@ async function setCount (day, month) {
     const foundObject = await model.findOne({date:inputDate}).exec();
   if (foundObject) {
     //if yes update/increment count
-    // foundObject.count = 5;
     const toUpdate = {
       count: foundObject['count']+1
     };
-    // let a = 5;
-    // let b = a++;
-
-    // console.log(a); // 6
-    // console.log(b); // 5
-
-    // /*
-    // let b = a++;
-    // ||
-    // let tmp = a;
-    // a = a+1;
-    // b = tmp;
-
-    // let b = ++a;
-    // ||
-    // a=a+1
-    // b = a;
-    // */
-    // console.log(x); // 5
-    // console.log(foundObject.count); // 6
-    // console.log(toUpdate.count); // 5
     const updatedFact = await model.updateOne({date:inputDate}, toUpdate);
 
   } else {
