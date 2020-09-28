@@ -25,37 +25,30 @@ const App = () => {
     setInfo('Loading...');
     setFacts([]);
     fetch(`${baseURL}/facts/${month}/${day}`) //promise resolved in response object
-      .then((response) => response.json()) // reads the response stream to completion and parses the response as json 
-      .then((response) => setFacts(response.events))      
-      .then(() => setInfo(undefined))
+      .then((response) => response.json()) // reads the response stream to completion and parses the response as json
+      .then((response) => setFacts(response.events))
+      .then(() => setInfo(undefined));
   }
-  
+
   function getMostFrequentDates() {
     fetch(`${baseURL}/frequent`)
-    .then((response) => response.json())
-
-   
-    .then(response => {      
-      console.log(response)
-      setFrequentDates(response)
-
-    })
+      .then((response) => response.json())
+      .then((response) => {
+        const mappedObject = response.map(({ date, count }) => ({
+          value: date.split('&').join('/'),
+          count: count,
+        }));
+        setFrequentDates(mappedObject);
+        console.log(mappedObject); // return value of console.log is undefined
+      });
   }
-  
+
   const factsList = facts.map((fact) => (
     <>
       <div className='Description'>{fact.description}</div>
       {/* <div className="Year">{fact.year}</div> */}
     </>
   ));
-
-  // filter as per factsList to get data for TagCloud
-  // const frequentDatesList = frequentDates.map((frequentDate) => (
-  //   <>
-  //     <div>{frequentDate.date, frequent.count}</div> 
-  //   </>
-
-  // ));
 
   return (
     <>
@@ -73,14 +66,12 @@ const App = () => {
         />
       </header>
       <div className='Main-container'>
-        {/* {frequentDatesList} */}
-        {/* <TagCloud 
-        minSize={12}
-        maxSize={35}
-        tags={frequentDatesList}
-        className="simple-cloud"
-        onClick={tag => alert(`'${tag.value}' was selected!`)}
-      />         */}
+        <TagCloud className='TagCloud'
+          minSize={16}
+          maxSize={35}
+          tags={frequentDates}
+          onClick={(tag) => alert(`'${tag.value}' was selected!`)}
+        />
         <div className='Facts-list'>
           {info ? <div className='Info'>{info}</div> : <></>}
           {factsList}

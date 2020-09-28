@@ -5,10 +5,10 @@ const model = require('../Models/models');
 async function getMostFrequentDates(req, res) {
   try {
     const factsFromDB = await model.find();
-    //send only 10 most frequent
+    //send only 15 most frequent
     let mostFrequentDates = factsFromDB
       .sort((a, b) => b.count - a.count)
-      .slice(0, 11);
+      .slice(0, 14);
     res.status(200);
     res.send(mostFrequentDates);
   } catch (e) {
@@ -46,7 +46,7 @@ async function setCount(day, month) {
   } else {
     //if not create
     const newFact = await model.create({
-      date: `${day}&${month}`,
+      date: `${day}&:${month}`,
       count: 1,
     });
   }
