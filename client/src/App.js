@@ -36,7 +36,7 @@ const App = () => {
     </>
   ))
   // filter as per factsList to get data for TagCloud
-  
+
   return (
     <>
       <header className="Navigation">
@@ -48,13 +48,13 @@ const App = () => {
         <Form className="Form" month={currentMonth} day={currentDay} getFacts={getFacts} />
       </header>
       <div className="Main-container">
-      <TagCloud 
+      {/* <TagCloud 
         minSize={12}
         maxSize={35}
         tags={data}
         className="simple-cloud"
         onClick={tag => alert(`'${tag.value}' was selected!`)}
-      />        
+      />         */}
         <div className="Facts-list">
           {
             info ? <div className="Info">{info}</div> : <></>
