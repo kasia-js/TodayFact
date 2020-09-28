@@ -14,6 +14,9 @@ const App = () => {
   const [frequentDates, setFrequentDates] = useState([]);
   let currentMonth = new Date().getMonth() + 1;
   let currentDay = new Date().getDate();
+  const [day, setDay] = useState(currentDay);
+  const [month, setMonth] = useState(currentMonth);
+ 
 
   useEffect(() => {
     //perform data fetching after render
@@ -49,6 +52,20 @@ const App = () => {
       {/* <div className="Year">{fact.year}</div> */}
     </>
   ));
+  
+  function TagCloudOnClickFunction(dayMonth) {
+    console.log(dayMonth)
+    setMonth(1);
+    setDay(2);
+    console.log("aaaaa")
+    getFacts(1,2)
+
+  }
+
+  function dateUpdated(day,month) {
+    setDay(day);
+    setMonth(month);
+  }
 
   return (
     <>
@@ -60,9 +77,11 @@ const App = () => {
         <img src={logo} className='Wikipedia-logo' alt='logo' />
         <Form
           className='Form'
-          month={currentMonth}
-          day={currentDay}
+          month={month}
+          
+          day={day}
           getFacts={getFacts}
+          dateUpdated = {dateUpdated}
         />
       </header>
       <div className='Main-container'>
@@ -70,7 +89,7 @@ const App = () => {
           minSize={16}
           maxSize={35}
           tags={frequentDates}
-          onClick={(tag) => alert(`'${tag.value}' was selected!`)}
+          onClick={(tag) => TagCloudOnClickFunction(tag.value)} 
         />
         <div className='Facts-list'>
           {info ? <div className='Info'>{info}</div> : <></>}

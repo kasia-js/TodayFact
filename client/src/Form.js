@@ -6,8 +6,8 @@ import './Form.css';
 
 function Form(props) {
   // Form({getFacts, day, month})
-  const [day, changeDay] = useState(props.day);
-  const [month, changeMonth] = useState(props.month);
+  // const [day, changeDay] = useState(props.day);
+  // const [month, changeMonth] = useState(props.month);
   //Code for input validation
   const [displayMonthInputError, setDisplayMonthInputError] = useState(false);
   const [displayDayInputError, setDisplayDayInputError] = useState(false); //initial value of displayDayInputError equal to false
@@ -17,11 +17,11 @@ function Form(props) {
   function handleDayChange(e) {
     if (!isNaN(e.target.value) != null) {
       setDisplayDayInputError(false);
-      changeDay(e.target.value);
+      props.dateUpdated(e.target.value,props.month);
     } else {
       setDisplayDayInputError(true);
       setDisplayWrongDayInput(e.target.value);
-      changeDay(e.target.value);
+      props.dateUpdated(e.target.value,props.month);
     }
   }
 
@@ -31,11 +31,11 @@ function Form(props) {
       e.target.value.match(/^([1-9]|1[0-2])$/) != null
     ) {
       setDisplayMonthInputError(false);
-      changeMonth(e.target.value);
+      props.dateUpdated(props.day,e.target.value);
     } else {
       setDisplayMonthInputError(true);
       setDisplayWrongMonthInput(e.target.value);
-      changeMonth(e.target.value);
+      props.dateUpdated(props.day,e.target.value);
     }
   }
 
@@ -43,9 +43,9 @@ function Form(props) {
     e.preventDefault();
     if (!displayMonthInputError && !displayDayInputError) {
       //both must be true, otherwise it checks only the first one
-      console.log(day);
-      console.log(month);
-      props.getFacts(month, day);
+      console.log(props.day);
+      console.log(props.month);
+      props.getFacts(props.month, props.day);
     }
   }
 
@@ -59,7 +59,7 @@ function Form(props) {
         name='day'
         min='1'
         max='31'
-        value={day}
+        value={props.day}
         onChange={handleDayChange}
       />
       <label className='Month-label'>MONTH</label>
@@ -69,7 +69,7 @@ function Form(props) {
         name='month'
         min='1'
         max='12'
-        value={month}
+        value={props.month}
         onChange={handleMonthChange}
       />
       <button type='submit' className='Form-submit'>
