@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
-.Navigation { 
+.Navigation {
   display: flex;
-  background-color: #04acdc; 
+  background-color: #004962;
   padding-left: 10px;
   padding-right: 30px;
-  justify-content: space-between;    
+  justify-content: space-between;
 }
 
 .Title-big {
@@ -25,7 +25,7 @@
 }
 
 .Wikipedia-logo {
-  height: 180px;  
+  height: 180px;
   align-self: center;
   margin-top: 10px;
 }
@@ -40,28 +40,28 @@
   flex: 2;
   flex-direction: column;
   align-items: flex-start;
-  padding-top:5px;  
+  padding-top: 5px;
 }
 
-.Tag-cloud { 
+.Tag-cloud {
   color: black;
   flex: 1;
   margin-top: 100px;
-  margin-left: 100px;  
+  margin-left: 100px;
 }
 
-.small{
+.small {
   font-size: 15px;
 }
 
 .Description {
-  background-color: #004962;;
+  background-color: #04acdc;
   flex: 2;
-  margin-right:50px;
+  margin-right: 50px;
   margin-top: 20px;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: 13px -17px 35px -12px rgba(0,0,0,0.75);
+  box-shadow: 13px -17px 35px -12px rgba(0, 0, 0, 0.75);
   border-radius: 7px;
   padding: 25px;
   font-size: 16px;
@@ -69,6 +69,6 @@
 
 .Info {
   color: #e02877;
-  padding: 10px; 
-  font-size: 20px; 
+  padding: 10px;
+  font-size: 20px;
 }

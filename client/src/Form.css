@@ -21,11 +21,11 @@
 }
 
 .Form-submit:hover {
-  background-color:#d2dce7;
+  background-color: #d2dce7;
   color: black;
 }
 
-.Heading-text {  
+.Heading-text {
   font-size: 16px;
   color: white;
   font-family: 'Roboto', sans-serif;
@@ -37,7 +37,7 @@
   color: white;
   padding-right: 10px;
   margin-top: 10px;
-  font-size: 14px;   
+  font-size: 14px;
 }
 
 .Month-label {
@@ -47,14 +47,14 @@
   margin-top: 10px;
   font-size: 14px;
 }
-.Month-input, .Day-input {
-  background-color:#004962;
+.Month-input,
+.Day-input {
+  background-color: #004962;
   padding-top: 5px;
   padding-bottom: 5px;
   font-family: 'Roboto', sans-serif;
   color: white;
   text-align: center;
-  border-radius: 5px; 
-  margin-right: 30px;  
+  border-radius: 5px;
+  margin-right: 30px;
 }
-

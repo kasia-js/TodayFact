@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const express = require('express');
 const cors = require('cors');
 const router = require('./Router/router');
@@ -12,4 +12,4 @@ app.use(router);
 const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`); //eslint-disable-line no-console
-})
+});
