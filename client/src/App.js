@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from './Form.js';
 import logo from './Wikipedia_logo_(svg).svg';
-
 import { TagCloud } from 'react-tagcloud';
 
 // const baseURL = 'https://byabbe.se/on-this-day/1/20/events.json'
@@ -29,27 +28,72 @@ const App = () => {
     setFacts([]);
     fetch(`${baseURL}/facts/${month}/${day}`) //promise resolved in response object
       .then((response) => response.json()) // reads the response stream to completion and parses the response as json
-      .then((response) => setFacts(response.events))
+      .then((response) => {
+        setFacts(response.events);
+        console.log(response.events);
+      })
+
       .then(() => setInfo(undefined));
   }
 
   function getMostFrequentDates() {
     fetch(`${baseURL}/frequent`)
       .then((response) => response.json())
+
       .then((response) => {
         const mappedObject = response.map(({ date, count }) => ({
           value: date.split('&').join('/'),
           count: count,
         }));
         setFrequentDates(mappedObject);
+        console.log(response);
         console.log(mappedObject); // return value of console.log is undefined
       });
   }
 
+  function Fact({ fact }) {
+    const [showModal, setShowModal] = useState(false);
+
+    function handleFactClick(fact) {
+      setShowModal(true);
+    }
+    function handleClose() {
+      setShowModal(false);
+    }
+
+    return (
+      <>
+        {/* this part renders always */}
+        <div
+          key={fact._id}
+          className='Description'
+          onClick={(e) => handleFactClick(fact)}
+        >
+          {fact.description}{' '}
+        </div>
+
+        {/* this part renders on click. Do mapping through wikipedia array & display as link */}
+
+        {showModal && (
+          <div className='Description-detail'>
+            YEAR: {fact.year}
+            <br></br> LINK: {fact.wikipedia[0].wikipedia}
+            <span className='close' onClick={handleClose}>
+              <button type='submit' className='Form-submit'>
+                X
+              </button>
+            </span>
+          </div>
+        )}
+      </>
+    );
+  }
+
   const factsList = facts.map((fact) => (
     <>
-      <div className='Description'>{fact.description} </div>
-      {/* {fact.year} */}
+      {/* <div key = {fact._id} className='Description'>{fact.description} </div>
+      {fact.year} */}
+      <Fact fact={fact} />
     </>
   ));
 
@@ -65,7 +109,7 @@ const App = () => {
   }
 
   return (
-    <div className="Body-container">
+    <div className='Body-container'>
       <header className='Navigation'>
         <img src={logo} className='Wikipedia-logo' alt='logo' />
         <div>
@@ -83,10 +127,10 @@ const App = () => {
           </label>
           <TagCloud
             className='TagCloud'
-            minSize={10}
+            minSize={14}
             maxSize={60}
             tags={frequentDates}
-            disableRandomColor={true}
+            // disableRandomColor={true}
             onClick={(tag) => onTagCloudClick(tag.value)}
           />
         </div>

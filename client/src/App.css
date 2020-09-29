@@ -102,3 +102,12 @@
 .Body-container {
   height: 100vh;
 }
+
+.Description-detail {
+  background-color: #04acdc;
+  margin-right: 50px;
+  padding-left: 25px;
+}
+.close{ 
+  border: none; 
+}
