@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from './Form.js';
 import logo from './Wikipedia_logo_(svg).svg';
+
 import { TagCloud } from 'react-tagcloud';
 
 // const baseURL = 'https://byabbe.se/on-this-day/1/20/events.json'
@@ -47,8 +48,8 @@ const App = () => {
 
   const factsList = facts.map((fact) => (
     <>
-      <div className='Description'>{fact.description}</div>
-      {/* <div className="Year">{fact.year}</div> */}
+      <div className='Description'>{fact.description} </div>
+      {/* {fact.year} */}
     </>
   ));
 
@@ -56,42 +57,46 @@ const App = () => {
     const dayMonthArray = dayMonth.split('/');
     const day = parseInt(dayMonthArray[0]);
     const month = parseInt(dayMonthArray[1]);
-    console.log(day) 
-    console.log(typeof day)  
+    console.log(day);
+    console.log(typeof day);
     setDay(day);
     setMonth(month);
-    getFacts(month,day);
+    getFacts(month, day);
   }
 
   return (
-    <>
+    <div className="Body-container">
       <header className='Navigation'>
+        <img src={logo} className='Wikipedia-logo' alt='logo' />
         <div>
-          <div className='Title-big'>TodayFacts by WIKIPEDIA. </div>
+          <div className='Title-big'>
+            <b className='pinkText'>TodayFacts</b> by WIKIPEDIA.
+          </div>
           <div className='Title-small'>The Free Encyclopedia</div>
         </div>
-        <img src={logo} className='Wikipedia-logo' alt='logo' />
-        <Form
-          className='Form'
-          month={month}
-          day={day}
-          getFacts={getFacts}
-        />
       </header>
       <div className='Main-container'>
-        <TagCloud className='TagCloud'
-          minSize={10}
-          maxSize={60}
-          tags={frequentDates}
-          disableRandomColor={true}
-          onClick={(tag) => onTagCloudClick(tag.value)}
-        />
+        <div className='Left-container'>
+          <Form className='Form' month={month} day={day} getFacts={getFacts} />
+          <label className='Heading-text-TagCloud'>
+            {/* The most popular dates... */}
+          </label>
+          <TagCloud
+            className='TagCloud'
+            minSize={10}
+            maxSize={60}
+            tags={frequentDates}
+            disableRandomColor={true}
+            onClick={(tag) => onTagCloudClick(tag.value)}
+          />
+        </div>
+
         <div className='Facts-list'>
           {info ? <div className='Info'>{info}</div> : <></>}
           {factsList}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
-
 import './App.css';
 import './Form.css';
 
@@ -57,7 +56,7 @@ function Form(props) {
   return (
     <form className='Form' onSubmit={print}>
       <label className='Heading-text'>Find facts for selected...</label>
-      <label className='Day-label'>DAY</label>
+      <label className='Day-label'>Day</label>
       <input
         className='Day-input'
         type='number'
@@ -68,7 +67,7 @@ function Form(props) {
         onChange={handleDayChange}
       />
 
-      <label className='Month-label'>MONTH</label>
+      <label className='Month-label'>Month</label>
       <input
         className='Month-input'
         type='number'

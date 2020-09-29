@@ -3,61 +3,61 @@
 .Navigation {
   display: flex;
   background-color: #004962;
-  padding-left: 10px;
-  padding-right: 30px;
-  justify-content: space-between;
+  padding-left: 50px;
+  height: 12%;
 }
 
 .Title-big {
-  margin-top: 60px;
+  margin-top: 20px;
   text-align: start;
-  font-size: 32px;
-  margin-left: 70px;
+  font-size: 20px;
+  margin-left: 20px;
   color: white;
   font-family: 'Roboto', sans-serif;
 }
 
 .Title-small {
-  font-size: 25px;
-  margin-left: 120px;
+  font-size: 14px;
+  margin-left: 20px;
   color: white;
   font-family: 'Roboto', sans-serif;
 }
 
 .Wikipedia-logo {
-  height: 180px;
+  height: 80px;
   align-self: center;
-  margin-top: 10px;
 }
 
 .Main-container {
   background-color: #d2dce7;
   display: flex;
   flex-direction: row;
+  height: 88%;
 }
 
 .Facts-list {
-  flex: 2;
+  flex: 3;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 5px;
+  padding-left:20px;
 }
 
-.small {
+/* .small {
   font-size: 15px;
-}
+} */
 
 .Description {
   background-color: #04acdc;
-  flex: 2;
   margin-right: 50px;
   margin-top: 20px;
   flex-direction: column;
   align-items: flex-start;
-  box-shadow: 13px -17px 35px -12px rgba(0, 0, 0, 0.75);
-  border-radius: 7px;
+  box-shadow: 0 0 15px 2px #3333;
+  border-radius: 4px;
   padding: 25px;
   font-size: 16px;
+  
 }
 
 .Info {
@@ -67,26 +67,38 @@
 }
 
 .TagCloud {
-  margin-top: 50px;
+  /* margin-top: 10px; */
   margin-left: 50px;
-  margin-right: 50px;
-  flex: 1;
+  margin-right: 30px;
   text-align: center;
-  color: black;
+  color: white; 
+  background-color: #004962;
+  box-shadow: 0 0 15px 2px #3333;
+  border-radius: 4px;
+  padding: 25px;
+  cursor: pointer;
 }
-.TagCloud span{
-  color: black;
-}
-
-/* .TagCloud {
-  margin-top: 50px;
-  margin-left: 50px;
-  margin-right: 50px;
-  flex: 1;
-  text-align: center;
-  color: black;
-}
-.TagCloud span{
-  color: black;
+/* .TagCloud span{
+  color: white;
 } */
+.Heading-text-TagCloud {
+  font-size: 16px;
+  color: #004962;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 50px;
+  margin-top: 50px; 
+}
 
+.pinkText {
+  color: #e02877;
+}
+
+.Left-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1; 
+}
+
+.Body-container {
+  height: 100vh;
+}
