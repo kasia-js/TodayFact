@@ -53,10 +53,14 @@ const App = () => {
   ));
 
   function onTagCloudClick(dayMonth) {
-    console.log(dayMonth)
-    setDay(1);
-    setMonth(2);
-    getFacts(1,2);
+    const dayMonthArray = dayMonth.split('/');
+    const day = parseInt(dayMonthArray[0]);
+    const month = parseInt(dayMonthArray[1]);
+    console.log(day) 
+    console.log(typeof day)  
+    setDay(day);
+    setMonth(month);
+    getFacts(month,day);
   }
 
   return (
@@ -77,7 +81,7 @@ const App = () => {
       <div className='Main-container'>
         <TagCloud className='TagCloud'
           minSize={10}
-          maxSize={95}
+          maxSize={60}
           tags={frequentDates}
           disableRandomColor={true}
           onClick={(tag) => onTagCloudClick(tag.value)}
