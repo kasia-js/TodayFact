@@ -65,10 +65,28 @@
   padding: 10px;
   font-size: 20px;
 }
+
 .TagCloud {
   margin-top: 50px;
   margin-left: 50px;
   margin-right: 50px;
   flex: 1;
   text-align: center;
+  color: black;
 }
+.TagCloud span{
+  color: black;
+}
+
+/* .TagCloud {
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+  flex: 1;
+  text-align: center;
+  color: black;
+}
+.TagCloud span{
+  color: black;
+} */
+

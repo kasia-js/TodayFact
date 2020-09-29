@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 
 import './App.css';
@@ -13,6 +13,11 @@ function Form(props) {
   const [displayDayInputError, setDisplayDayInputError] = useState(false); //initial value of displayDayInputError equal to false
   const [displayWrongDayInput, setDisplayWrongDayInput] = useState();
   const [displayWrongMonthInput, setDisplayWrongMonthInput] = useState();
+
+  useEffect( () => {
+    changeDay(props.day);
+    changeMonth(props.month);
+  }, [props.day, props.month])
 
   function handleDayChange(e) {
     if (!isNaN(e.target.value) != null) {
@@ -62,6 +67,7 @@ function Form(props) {
         value={day}
         onChange={handleDayChange}
       />
+
       <label className='Month-label'>MONTH</label>
       <input
         className='Month-input'

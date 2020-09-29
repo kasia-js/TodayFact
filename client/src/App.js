@@ -14,6 +14,8 @@ const App = () => {
   const [frequentDates, setFrequentDates] = useState([]);
   let currentMonth = new Date().getMonth() + 1;
   let currentDay = new Date().getDate();
+  const [day, setDay] = useState(currentDay);
+  const [month, setMonth] = useState(currentMonth);
 
   useEffect(() => {
     //perform data fetching after render
@@ -50,6 +52,13 @@ const App = () => {
     </>
   ));
 
+  function onTagCloudClick(dayMonth) {
+    console.log(dayMonth)
+    setDay(1);
+    setMonth(2);
+    getFacts(1,2);
+  }
+
   return (
     <>
       <header className='Navigation'>
@@ -60,17 +69,18 @@ const App = () => {
         <img src={logo} className='Wikipedia-logo' alt='logo' />
         <Form
           className='Form'
-          month={currentMonth}
-          day={currentDay}
+          month={month}
+          day={day}
           getFacts={getFacts}
         />
       </header>
       <div className='Main-container'>
         <TagCloud className='TagCloud'
-          minSize={16}
-          maxSize={35}
+          minSize={10}
+          maxSize={95}
           tags={frequentDates}
-          onClick={(tag) => alert(`'${tag.value}' was selected!`)}
+          disableRandomColor={true}
+          onClick={(tag) => onTagCloudClick(tag.value)}
         />
         <div className='Facts-list'>
           {info ? <div className='Info'>{info}</div> : <></>}

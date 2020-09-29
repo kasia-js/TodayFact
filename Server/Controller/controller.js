@@ -46,7 +46,7 @@ async function setCount(day, month) {
   } else {
     //if not create
     const newFact = await model.create({
-      date: `${day}&:${month}`,
+      date: `${day}&${month}`,
       count: 1,
     });
   }
