@@ -1,51 +1,49 @@
 # TodayFacts
 
 <p align="center">
-  <img src="/client/src/assets/images/TodayFactsLogo.png" />   
+  <img src="/client/src/assets/images/TodayFactsLogo.png" />
 </p>
 
-TodayFacts is a web app created to provide information about events around the world on a given date. 
+TodayFacts is a web app created to provide information about events around the world on a given date.
 When a user opens the site, the facts of today are displayed. The user can then search for any other date or select the most popular date from the cloud tag provided.
 
 ## Screenshots
 
 <p align="center">
-  <img src="/client/src/assets/images/Screenshot.png" />
+  <img src="/img/Screenshot.png" />
 </p>
 
 ## Getting started
 
 1. Clone this repo and enter!
 
-   ```bash
-   git clone https://github.com/kasia-js/TodayFacts.git
-   ```
+  ```bash
+  git clone https://github.com/kasia-js/TodayFacts.git
+  ```
 
 2. Install dependencies.
 
-   ```bash
-   cd client && npm i
-   cd ../server && npm i
-   ```
+  ```bash
+  npm i
+  cd client && npm i
+  ```
+3. Build application
 
-3. Start the app.
-- on the server folder, start data base (commands for linux)
   ```bash
-  sudo systemctl start mongod
-  mongo
+  cd client && npm run build
   ```
-- on the server folder
+
+4. Start the app.
   ```bash
-  nodemon index.js
+  sudo systemctl start mongod # start mongoDB server
+  npm run start # start server
   ```
-- on the client folder
-  ```bash
-  npm start
-  ```
+  Then in the browser go to [http://localhost:3001](localhost:3001)
+
 
 ## Built with
 <p align="center">
-  <img src="/client/src/assets/images/Architecture.png" />
+  <img src="/img/Architecture.png" />
 </p>
 
 - [React](https://reactjs.org/)

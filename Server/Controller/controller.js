@@ -24,11 +24,11 @@ async function getFacts(req, res) {
     const facts = await axios.get(
       `https://byabbe.se/on-this-day/${month}/${day}/events.json`
     );
-    setCount(day, month);
+    await setCount(day, month);
     res.status(200);
     res.send(facts.data);
   } catch (error) {
-    console.log('Errror in getFacts', error); //eslint-disable-line no-console
+    console.log('Error in getFacts', error); //eslint-disable-line no-console
     res.sendStatus(500);
   }
 }
@@ -42,10 +42,10 @@ async function setCount(day, month) {
     const toUpdate = {
       count: foundObject['count'] + 1,
     };
-    const updatedFact = await model.updateOne({ date: inputDate }, toUpdate);
+    await model.updateOne({ date: inputDate }, toUpdate);
   } else {
     //if not create
-    const newFact = await model.create({
+    await model.create({
       date: `${day}&${month}`,
       count: 1,
     });

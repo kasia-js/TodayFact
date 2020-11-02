@@ -1,8 +1,9 @@
 'use strict';
-const router = require('express').Router();
-const fact = require('../Controller/controller');
+const express = require('express');
+const controller = require('../Controller/controller');
 
-router.get('/facts/:month/:day/',fact.getFacts);
-router.get('/frequent',fact.getMostFrequentDates);
+const router = express.Router();
+router.get('/facts/:month/:day/', controller.getFacts);
+router.get('/frequent', controller.getMostFrequentDates);
 
 module.exports = router;

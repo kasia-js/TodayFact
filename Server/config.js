@@ -1,5 +1,5 @@
 module.exports = {
-  dbUrl: 'mongodb://localhost:27017',
+  dbUrl: process.env.MONGODB_URL || 'mongodb://localhost:27017',
   dbName: 'Facts',
-  PORT: 3001,
+  port: process.env.PORT || 3001
 };

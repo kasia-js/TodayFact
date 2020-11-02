@@ -1,0 +1,31 @@
+{
+    "name": "today-facts",
+    "description": "Web application showing facts of the day",
+    "version": "1.0.0",
+    "engines": {
+        "node": "12.x"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "heroku-postbuild": "cd client && npm install && npm run build",
+        "lint": "eslint ./Server/**/*.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "main": "index.js",
+    "author": "Katarzyna Kolny <kolnykatarzyna@gmail.com>",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.20.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.10.11"
+    },
+    "devDependencies": {
+        "eslint": "^7.9.0",
+        "eslint-config-standard": "^14.1.1",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-json": "^2.1.2",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1"
+    }
+}
