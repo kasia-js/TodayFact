@@ -1,9 +1,5 @@
 # TodayFacts
 
-<p align="center">
-  <img src="/client/src/assets/images/TodayFactsLogo.png" />
-</p>
-
 TodayFacts is a web app created to provide information about events around the world on a given date.
 When a user opens the site, the facts of today are displayed. The user can then search for any other date or select the most popular date from the cloud tag provided. 
 
