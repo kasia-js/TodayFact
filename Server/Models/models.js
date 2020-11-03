@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const factSchema = new Schema({
   date: { type: String },
-  count: { type: Number },
+  count: { type: Number }
 });
 
 const InputFact = mongoose.model('Facts', factSchema);

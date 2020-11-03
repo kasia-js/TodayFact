@@ -2,10 +2,10 @@
 const axios = require('axios');
 const model = require('../Models/models');
 
-async function getMostFrequentDates(req, res) {
+async function getMostFrequentDates (req, res) {
   try {
     const factsFromDB = await model.find();
-    //send only 15 most frequent
+    // send only 15 most frequent
     let mostFrequentDates = factsFromDB
       .sort((a, b) => b.count - a.count)
       .slice(0, 14);
@@ -17,7 +17,7 @@ async function getMostFrequentDates(req, res) {
   }
 }
 
-async function getFacts(req, res) {
+async function getFacts (req, res) {
   try {
     const day = req.params.day;
     const month = req.params.month;
@@ -33,21 +33,21 @@ async function getFacts(req, res) {
   }
 }
 
-async function setCount(day, month) {
+async function setCount (day, month) {
   //find if inputDate exists in DB
   const inputDate = `${day}&${month}`;
   const foundObject = await model.findOne({ date: inputDate }).exec();
   if (foundObject) {
-    //if yes update/increment count
+    // if yes update/increment count
     const toUpdate = {
-      count: foundObject['count'] + 1,
+      count: foundObject['count'] + 1
     };
     await model.updateOne({ date: inputDate }, toUpdate);
   } else {
-    //if not create
+    // if not create
     await model.create({
       date: `${day}&${month}`,
-      count: 1,
+      count: 1
     });
   }
 }
