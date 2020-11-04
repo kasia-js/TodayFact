@@ -38,7 +38,7 @@ https://today-facts.herokuapp.com/#
   cd Server && sudo systemctl start mongod # start mongoDB in Server folder
   cd .. && npm run start # start application in main folder
   ```
-  Then in the browser go to [http://localhost:3000](localhost:3000)
+  Then in the browser go to [http://localhost:3001](localhost:3001)
 
 
 ## Built with
