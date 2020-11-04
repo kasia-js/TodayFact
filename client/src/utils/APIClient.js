@@ -20,7 +20,7 @@ class APIClient {
   }
 }
 
-const baseURL = 'http://localhost:3001'; // process.env.BASE_URL || '';
+const baseURL = process.env.BASE_URL || '';
 
 const client = new APIClient(baseURL);
 export default client;

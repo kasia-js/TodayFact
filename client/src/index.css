@@ -2,12 +2,12 @@
   height: 10vh;
 }
 
-.Main-container {
+.main-container {
   background-color: #ffffff;
   display: flex;
 }
 
-.Facts-list {
+.facts-list {
   flex: 3;
   padding-top: 5px;
   padding-left: 20px;
@@ -33,7 +33,7 @@
   color: #e02877;
 }
 
-.Left-container {
+.left-container {
   display: flex;
   flex-direction: column;
   flex: 1;
