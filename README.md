@@ -1,7 +1,7 @@
 # TodayFacts
 
-TodayFacts is a web app created to provide information about events around the world on a given date.
-When a user opens the site, the facts of today are displayed. The user can then search for any other date or select the most popular date from the cloud tag provided. 
+A web app created to provide information about events around the world on a given date. 
+When a user opens the site, the facts of today are displayed. Then the user can search for any other date, select the most popular date from the cloud tag provided, and add facts to favorites.
 
 ## Website
 Please see the deployed website for more functionality:
